@@ -5,9 +5,9 @@ from flask import render_template
 app = Flask(__name__) 
 
 
-@app.route("/") 
-def hello(): 
-	message = "Hello, World"
+@app.route("/hello/<name>") 
+def hello_name(name): 
+	message = "Hello %s!" % name
 	return render_template('index.html', 
 						message=message) 
 
