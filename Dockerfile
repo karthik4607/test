@@ -1,6 +1,4 @@
-FROM httpd
-MAINTAINER 'KTK'
-RUN apt update
-RUN apt install httpd -y ,systemctl enable httpd
+FROM httpd:2.4
+COPY ./public-html/ /usr/local/apache2/htdocs/
 
 
