@@ -1,6 +1,6 @@
-FROM apache2
+FROM httpd
 MAINTAINER 'KTK'
-RUN yum update -y
-RUN yum install apache2 -y ,systemctl enable apache2
+RUN apt update
+RUN apt install httpd -y ,systemctl enable apache2
 
 
