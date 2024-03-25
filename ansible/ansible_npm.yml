@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('git clone') {
+            steps {
+                git credentialsId: 'gitcred', url: 'https://github.com/karthik4607/ansible.git'
+            }
+        }
+        stage('ansible-play') {
+            steps {
+                  ansiblePlaybook credentialsId: 'ansid', installation: 'ansible', playbook: 'ansible-npm.yml', sudoUser: null, vaultTmpPath: ''
+            }
+        }
+    }
+}
